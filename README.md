@@ -36,7 +36,6 @@ Once above installation failed because of versions conflict, then try below inst
 
 <details>
 <summary><span style="font-weight: bold;">File tree.</span></summary>
-    ```
     📁 geometrylab/
     ├─📁 fitting/
     │ ├─📄 bspline.py
@@ -105,7 +104,6 @@ Once above installation failed because of versions conflict, then try below inst
     │ ├─📄 viewer.py
     │ └─📄 __init__.py
     └─📄 __init__.py
-    ```
 </details>
 <br>
 
