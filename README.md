@@ -32,6 +32,84 @@ Once above installation failed because of versions conflict, then try below inst
     $ conda install pyface
     ```
 
+## File tree
+
+<details>
+<summary><span style="font-weight: bold;">File tree.</span></summary>
+    ```
+    📁 geometrylab/
+    ├─📁 fitting/
+    │ ├─📄 bspline.py
+    │ ├─📄 cluster.py
+    │ ├─📄 jetfitting.py
+    │ ├─📄 linearregression.py
+    │ └─📄 __init__.py
+    ├─📁 geometry/
+    │ ├─📄 bspline.py
+    │ ├─📄 circle.py
+    │ ├─📄 frame.py
+    │ ├─📄 meshprimitives.py
+    │ ├─📄 meshpy.py
+    │ ├─📄 meshutilities.py
+    │ ├─📄 points.py
+    │ ├─📄 polyline.py
+    │ └─📄 __init__.py
+    ├─📁 gui/
+    │ ├─📄 geolabcomponent.py
+    │ ├─📄 geolabgui.py
+    │ ├─📄 geolabmesh.py
+    │ ├─📄 geolabpoints.py
+    │ ├─📄 geolabscene.py
+    │ ├─📄 handler.py
+    │ ├─📁 img/
+    │ ├─📄 multiscenemanager.py
+    │ ├─📄 scenemanager.py
+    │ ├─📄 tools.py
+    │ └─📄 __init__.py
+    ├─📄 LICENSE
+    ├─📁 optimization/
+    │ ├─📄 combnormals.py
+    │ ├─📄 gridshell.py
+    │ ├─📄 guidedprojection.py
+    │ ├─📄 guidedprojectionbase.py
+    │ └─📄 __init__.py
+    ├─📄 README.md
+    ├─📁 test/
+    │ ├─📄 GUI.png
+    │ ├─📄 paneling.py
+    │ ├─📄 quad_dome.obj
+    │ ├─📄 tri_dome.obj
+    │ └─📄 tri_mesh.obj
+    ├─📁 utilities/
+    │ ├─📄 utilities.py
+    │ └─📄 __init__.py
+    ├─📁 vtkplot/
+    │ ├─📄 bsplineplotmanager.py
+    │ ├─📄 check.py
+    │ ├─📄 edgesource.py
+    │ ├─📄 facesource.py
+    │ ├─📄 glyphs.py
+    │ ├─📄 glyphsource.py
+    │ ├─📄 meshplotmanager.py
+    │ ├─📄 meshvectorsource.py
+    │ ├─📄 plotmanager.py
+    │ ├─📄 plotutilities.py
+    │ ├─📄 pointsource.py
+    │ ├─📄 pointsplotmanager.py
+    │ ├─📄 polylinesource.py
+    │ ├─📄 scenemanager.py
+    │ ├─📄 selector.py
+    │ ├─📄 toolbar.py
+    │ ├─📄 vector3dsource.py
+    │ ├─📄 vectorsource.py
+    │ ├─📄 viewer.py
+    │ └─📄 __init__.py
+    └─📄 __init__.py
+    ```
+</details>
+<br>
+
+
 ## Open the GUI 
 
 If you want to test how it works, just try python files in geometrylab/test: ex. run paneling.py, then a GUI window will be opened.
