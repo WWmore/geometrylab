@@ -2,7 +2,13 @@
 python + mayavi codebase for visualizing optimization problem in Geometry Processing / Archtectural Geometry
 
 
-This project was initially developed by [Davide Pellis (davidepellis@gmail.com)](https://scholar.google.com/citations?user=JnocFM4AAAAJ&hl=en).
+This library was initially developed by [Davide Pellis](https://scholar.google.com/citations?user=JnocFM4AAAAJ&hl=en).
+
+<img src="test/AG.png" align="right" width="40">
+
+A generalized use of it has been developed in the [ArchGeo library](https://github.com/WWmore/DOS).
+Please refer the [Documentation](https://www.huiwang.me/mkdocs-archgeo/) for more detail explanation.
+
 
 
 ## Set up a working environment in Windows / MacOS
@@ -60,7 +66,7 @@ The optimizer uses Guided Projection Algorithm, a Gauss-Newton algorithm, as dis
 If you want to test how it works, just try python files in geometrylab/test: ex. run paneling.py, then a GUI window will be opened.
 You can add waterever you like for the settings of optimization and visualization.
 
-![File](test/GUI.png)
+<img src="test/GUI.png" align="center" width="500">
 
 More implementation architecture can refer to the [DOS project](https://github.com/WWmore/DOS), which is based on this codebase.
 
