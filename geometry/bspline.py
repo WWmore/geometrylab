@@ -309,7 +309,7 @@ class BSpline(object):
         self.make_knot_vector()
 
     def curve_polyline(self):
-        return Polyline(self.sample_points, closed=self.closed)
+        return Polyline(self.sample_points(), closed=self.closed)
 
     def control_polyline(self):
         return Polyline(self.control_points, closed=self.closed)
@@ -318,41 +318,37 @@ class BSpline(object):
 
 
 
-
-
-from geometrylab import vtkplot
-
+#------------------------------------------------------------------------------
 if __name__ == '__main__':
 
+    from geometrylab import vtkplot
+    
+    if 1:
+        "plot Bezier curve, control points and control polygon:"
+        P = np.array([[3,0,0], [0,10,0], [10,-10,0], [10,10,0]])
+        sp = BSpline(control_points=P, degree=3)
+        #sp = sp.hodograph()
+        #sp = sp.hodograph()
+        
+        crv = sp.curve_polyline()
+        ctrl = sp.control_polyline()
+        
+        pl_crv = vtkplot.Polyline(polyline=crv, tube_radius=0.1, color='r',sampling=500)
+        pl_ctrl = vtkplot.Polyline(polyline=ctrl, color='black')
+        pl_pts = vtkplot.Points(P, radius=0.5, color='black')
+    
+        vtkplot.view([pl_pts, pl_crv, pl_ctrl])
+    
+    else:
+        "plot B-spline curve, control points and control polygon: "
+        P = np.array([[3,0,0], [0,10,0], [10,-10,0], [10,10,0], [-10,-10,0]])
+        sp = BSpline(control_points=P, degree=3,closed=False)
 
-    P = np.array([[3,0,0], [0,10,0], [10,-10,0], [10,10,0], [-10,-10,0]])
-    sp = BSpline(control_points=P, degree=3)
-    #sp = sp.hodograph()
-    #sp = sp.hodograph()
-
-    pt = np.random.random((10,3)) * 3
-    pt[:,2] = 0
-    sp.epsilon = 0.0005
-    Pt = sp.closest_points(pt)
-    Pt = sp.points(Pt)
-    print(Pt)
-
-
-    pl_pT = vtkplot.Points(Pt, radius=0.02, color='c')
-    pl_s = vtkplot.Points(sp.sample_points(), radius=0.01, color='r')
-    pl_p = vtkplot.Points(pt, radius=0.03, color='b')
-
-
-    vtkplot.view([pl_pT, pl_s, pl_p])
-
-
-
-
-
-
-
-
-
-
-
-
+        crv = sp.curve_polyline()
+        ctrl = sp.control_polyline()
+        
+        pl_crv = vtkplot.Polyline(polyline=crv, tube_radius=0.1, color='r',sampling=500)
+        pl_ctrl = vtkplot.Polyline(polyline=ctrl, color='black')
+        pl_pts = vtkplot.Points(P, radius=0.5, color='black')
+    
+        vtkplot.view([pl_pts, pl_crv, pl_ctrl])

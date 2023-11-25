@@ -10,19 +10,13 @@ from __future__ import division
 
 import numpy as np
 
-from traits.api import HasTraits, Instance, Property, Enum, Button, String,\
-                       on_trait_change, Float, Bool, Int,Constant, ReadOnly,\
-                       List, Array, Range
+from traits.api import HasTraits, Button, String, on_trait_change, Float, Bool, Array, Range
 
-from traitsui.api import View, Item, HSplit, VSplit, InstanceEditor, HGroup,\
-                         Group, ListEditor, Tabbed, VGroup, CheckListEditor,\
-                         ArrayEditor, Action, ToolBar, Separator, Controller
+from traitsui.api import View, Item,  HGroup, Group, VGroup,ArrayEditor, Controller
 
 from pyface.image_resource import ImageResource
 
 # -----------------------------------------------------------------------------
-
-'''check.py: an interactive checker for mesh connectivity and normals'''
 
 __author__ = 'Davide Pellis'
 

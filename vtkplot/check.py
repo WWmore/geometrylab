@@ -34,8 +34,6 @@ from geometrylab.vtkplot.pointsource import Points
 
 from geometrylab.vtkplot.vectorsource import Vectors
 
-from geometrylab.vtkplot.polylinesource import Polyline
-
 # -----------------------------------------------------------------------------
 
 '''check.py: an interactive checker for mesh connectivity and normals'''

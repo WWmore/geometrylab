@@ -102,7 +102,7 @@ path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 sys.path.append(path)
 
 from geometrylab import vtkplot
-
+from geometrylab.geometry import Polyline
 
 
 
@@ -116,11 +116,13 @@ Pt = sp.points(t)
 T, N = sp.frame(t)
 pl_v = vtkplot.Vectors(T,anchor=Pt)
 
-pl_p = vtkplot.Points(P, radius=0.3, color='r')
+pl_p = vtkplot.Points(P, radius=0.3, color='black')
 pl_pt = vtkplot.Points(Pt, radius=0.01)
 
+ctrl = Polyline(P)
+pl_ctrl = vtkplot.Polyline(polyline=ctrl, color='black')
 
-vtkplot.view([pl_p,pl_pt, pl_v])
+vtkplot.view([pl_p, pl_v, pl_ctrl])
 
 
 

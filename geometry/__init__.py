@@ -6,8 +6,6 @@
 
 from geometrylab.geometry.meshpy import Mesh
 
-from geometrylab.geometry.points import Points
-
 from geometrylab.geometry.frame import Frame
 
 from geometrylab.geometry.polyline import Polyline

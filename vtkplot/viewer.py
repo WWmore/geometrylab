@@ -6,27 +6,18 @@ from __future__ import print_function
 
 from __future__ import division
 
-from traits.api import HasTraits, Instance, Property, Enum, Button,String,\
-                       on_trait_change, Float, Bool, Int,Constant, ReadOnly,\
-                       List, Array
+from traits.api import HasTraits, Instance
 
-from traitsui.api import View, Item, HSplit, VSplit, InstanceEditor, HGroup,\
-                         Group, ListEditor, Tabbed, VGroup, CheckListEditor,\
-                         ArrayEditor
+from traitsui.api import View, Item
 
 from tvtk.pyface.scene_editor import SceneEditor
 
 from mayavi.tools.mlab_scene_model import MlabSceneModel
 
 
-
-from mayavi.core.ui.mayavi_scene import MayaviScene
-
 from pyface.image_resource import ImageResource
 
 import os
-
-import numpy as np
 
 # -----------------------------------------------------------------------------
 

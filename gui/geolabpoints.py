@@ -8,20 +8,11 @@ from __future__ import print_function
 
 from __future__ import division
 
-from tvtk.api import tvtk
-
-import numpy as np
-
 from pyface.image_resource import ImageResource
 
-from traits.api import HasTraits, Instance, Property, Enum, Button,String,\
-                       on_trait_change, Float, Bool, Int,Constant, ReadOnly,\
-                       List, Array, Range, Str, Color
+from traits.api import on_trait_change, Bool, Int, Range, Str, Color
 
-from traitsui.api import View, Item, HSplit, VSplit, InstanceEditor, HGroup,\
-                         Group, ListEditor, Tabbed, VGroup, CheckListEditor,\
-                         ArrayEditor, Action, ToolBar, Separator,EnumEditor,\
-                         ListStrEditor, ColorEditor, Controller
+from traitsui.api import View, Item, HGroup, VGroup, CheckListEditor,ColorEditor, Controller
 
 #------------------------------------------------------------------------------
 

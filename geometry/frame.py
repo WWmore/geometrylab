@@ -10,8 +10,6 @@ from __future__ import division
 
 import numpy as np
 
-from geometrylab import utilities
-
 # -----------------------------------------------------------------------------
 
 '''frame.py: The Frame data structure class'''

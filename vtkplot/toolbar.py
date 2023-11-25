@@ -8,15 +8,9 @@ from __future__ import print_function
 
 from __future__ import division
 
-import numpy as np
+from traits.api import HasTraits, Instance, Button, on_trait_change, Range
 
-from traits.api import HasTraits, Instance, Property, Enum, Button,String,\
-                       on_trait_change, Float, Bool, Int,Constant, ReadOnly,\
-                       List, Array, Range
-
-from traitsui.api import View, Item, HSplit, VSplit, InstanceEditor, HGroup,\
-                         Group, ListEditor, Tabbed, VGroup, CheckListEditor,\
-                         ArrayEditor, Action, ToolBar
+from traitsui.api import View, Item, VGroup, Action, ToolBar
 
 from tvtk.pyface.scene_editor import SceneEditor
 
@@ -29,12 +23,6 @@ from pyface.image_resource import ImageResource
 #------------------------------------------------------------------------------
 
 from geometrylab.vtkplot.scenemanager import SceneManager
-
-from geometrylab.vtkplot.pointsource import Points
-
-from geometrylab.vtkplot.vectorsource import Vectors
-
-from geometrylab.vtkplot.polylinesource import Polyline
 
 # -----------------------------------------------------------------------------
 

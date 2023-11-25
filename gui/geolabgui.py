@@ -8,19 +8,13 @@ from __future__ import print_function
 
 from __future__ import division
 
-from traits.api import HasTraits, Instance, Property, Enum, Button,String,\
-                       on_trait_change, Float, Bool, Int,Constant, ReadOnly,\
-                       List, Array, Range, Event
+from traits.api import Instance, String,on_trait_change, Bool, Int, List
 
-from traitsui.api import View, Item, HSplit, VSplit, InstanceEditor, HGroup,\
-                         Group, ListEditor, Tabbed, VGroup, CheckListEditor,\
-                         ArrayEditor, Action, ToolBar, Separator, Controller
+from traitsui.api import View, Item, HSplit, ListEditor, Action, ToolBar, Separator, Controller
 
 from tvtk.pyface.scene_editor import SceneEditor
 
 from mayavi.tools.mlab_scene_model import MlabSceneModel
-
-from mayavi.core.ui.mayavi_scene import MayaviScene
 
 from pyface.image_resource import ImageResource
 

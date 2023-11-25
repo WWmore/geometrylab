@@ -76,7 +76,7 @@ class Polyline(object):
 
     @vertices.setter
     def vertices(self, vertices):
-        vertices = np.array(vertices, 'f')
+        vertices = np.array(vertices)
         if len(vertices.shape) != 2 or vertices.shape[1] != 3:
             raise ValueError('wrong size!')
         try:
