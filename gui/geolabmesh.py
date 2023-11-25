@@ -285,7 +285,7 @@ class GeolabMesh(MeshPlotManager):
                         smooth=self.smooth_faces,
                         glossy=self.face_glossy_range,
                         lut_range=[0, val],
-                        color='blue-red')
+                        color='coolwarm') #blue-red
 
     def plot_gaussian_curvature(self):
         K = self.mesh.principal_curvatures(area_normalization=True)
@@ -296,7 +296,7 @@ class GeolabMesh(MeshPlotManager):
         self.plot_faces(vertex_data=vertex_data,
                         smooth=self.smooth_faces,
                         glossy=self.face_glossy_range,
-                        color='blue-red',
+                        color='coolwarm',#blue-red
                         lut_range=[-val, val])
 
     def plot_mean_curvature(self):
@@ -308,7 +308,7 @@ class GeolabMesh(MeshPlotManager):
         self.plot_faces(vertex_data=vertex_data,
                         smooth=self.smooth_faces,
                         glossy=self.face_glossy_range,
-                        color='blue-red',
+                        color='coolwarm',#blue-red
                         lut_range=[-val, val])
 
     @on_trait_change('show_fixed_vertices')
@@ -344,7 +344,7 @@ class GeolabMesh(MeshPlotManager):
     def plot_loads(self):
         if self.show_loads:
             self.plot_vectors(vectors=self.mesh.loads(),
-                              color='blue-red',
+                              color='coolwarm',#blue-red
                               glyph_type='3D-arrow',
                               position='head',
                               name='loads')
