@@ -2,7 +2,13 @@
 python + mayavi codebase for visualizing optimization problem in Geometry Processing / Archtectural Geometry
 
 
+| **License** | **Documentation** | Basic Library | Generalized Optimization Code |
+|:-:|:-:|:-:|:-:|
+| [![GitHub license](https://img.shields.io/github/license/alshedivat/al-folio?color=blue)](https://tlo.mit.edu/researchers-mit-community/protect/software-open-source-protection)|   [![doc](https://img.shields.io/badge/doc-readthedocs-blueviolet)](https://www.huiwang.me/mkdocs-archgeo/) | Numpy,SciPy,Mayavi | [![ArchGeo](https://github.com/WWmore/DOS)] |
+
+
 This library was initially developed by [Davide Pellis](https://scholar.google.com/citations?user=JnocFM4AAAAJ&hl=en).
+
 
 <img src="test/AG.png" align="right" width="40">
 
