@@ -6,3 +6,6 @@ from geometrylab.utilities.utilities import sum_repeated,\
                                             orthogonal_vector,\
                                             normalize,\
                                             remap
+
+from geometrylab.utilities.stringutilities import print_progress,\
+                                                  make_filepath

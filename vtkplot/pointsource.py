@@ -276,7 +276,7 @@ class Points(object):
                 points = np.array([points])
         else:
             points = self._points
-        self._data.set(points=points)
+        self._data.points=points ##Hui replace .set to .points
         self._vertex_data = kwargs.get('vertex_data', self._vertex_data)
         if self._vertex_data is not None:
             scalars = np.array(self._vertex_data)

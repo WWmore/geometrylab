@@ -248,7 +248,7 @@ class Faces(object):
     def _update_data(self, **kwargs):
         if True:
             vertices = self._mesh.vertices
-            self._data.set(points = vertices)
+            self._data.points = vertices ##Hui replace .set to .points
             cells, types = self._mesh.cell_arrays()
             cell_types = np.array([tvtk.Triangle().cell_type,
                                    tvtk.Quad().cell_type,

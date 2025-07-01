@@ -10,7 +10,7 @@ from __future__ import division
 
 from pyface.image_resource import ImageResource
 
-from traits.api import on_trait_change, Bool, Int, Range, Str, Color
+from traits.api import on_trait_change, Bool, Int, Range, Str, Trait #Color ##Hui replace Color by Trait
 
 from traitsui.api import View, Item, HGroup, VGroup, CheckListEditor,ColorEditor, Controller
 
@@ -53,7 +53,7 @@ class GeolabPoints(PointsPlotManager):
 
     vertices_glossy_range = Range(0., 1., 0.5)
 
-    vertices_color_select = Color((122, 163, 230), label='vertices color')
+    vertices_color_select = Trait((122, 163, 230), label='vertices color')
 
     vertices_callbacks = ['color', 'none']
 

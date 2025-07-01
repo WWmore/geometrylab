@@ -14,11 +14,10 @@ import numpy as np
 
 from scipy import sparse
 
-try:
-    from pypardiso import spsolve
-
-except:
-    from scipy.sparse.linalg import spsolve
+# try: ## spsolve is faster from pypardiso, but may be incompatible with other packages
+#     from pypardiso import spsolve 
+# except:
+from scipy.sparse.linalg import spsolve
 
 
 __author__ = 'Davide Pellis'
@@ -506,7 +505,7 @@ class GuidedProjectionBase(object):
         self._initialize_iteration()
         self._build_constant_matrices()
         X0 = np.array(self.X)
-        diff = np.linalg.norm(X0) / X0.shape[0]
+        #diff = np.linalg.norm(X0) / X0.shape[0]
         iteration = 0
         #while diff > self.threshold and iteration < self.iterations:
         for i in range(self.iterations):
@@ -519,11 +518,16 @@ class GuidedProjectionBase(object):
             K = 1.0/(10**(iteration * self.fairness_reduction)) * K
             s = 1.0/(10**(iteration * self.fairness_reduction)) * s
             X = sparse.csc_matrix([self.X]).transpose()
-            A = (sparse.spmatrix.dot(H.transpose(), H)
-                 + sparse.spmatrix.dot(K.transpose(), K) + self._R)
-            a = sparse.spmatrix.dot(H.transpose(), r) \
-                       + sparse.spmatrix.dot(K.transpose(), s) \
-                       + self.epsilon**2 * X
+            
+            #Hui changed to below since an error: spmatrix.dot has not dot
+            A = H.T @ H + K.T@K + self._R
+            a = H.T @ r + K.T@s + self.epsilon**2 * X
+            # A = (sparse.spmatrix.dot(H.transpose(), H)
+            #      + sparse.spmatrix.dot(K.transpose(), K) + self._R)
+            #a = sparse.spmatrix.dot(H.transpose(), r) \
+                       #+ sparse.spmatrix.dot(K.transpose(), s) \
+                       #+ self.epsilon**2 * X
+                         
             try:
                 a = a.toarray()
             except AttributeError:
@@ -533,7 +537,16 @@ class GuidedProjectionBase(object):
                 res0 = np.linalg.norm(res0)
                 self._residual = res0
                 #print(res0)
+            
+            #try: ##Huinote: original
             X = spsolve(A,a)
+            # except: ##Huinote: added
+            #     from pypardiso import PyPardisoSolver
+            #     solver = PyPardisoSolver()
+            #     solver.iparm[1] = 1  # 设置为 1 可以减少内存使用
+            #     solver.factorize(A)
+            #     X = solver.solve(A, a)
+            
             iteration += 1
             Xi = np.array(X)
             if self.step != 1:
@@ -552,7 +565,7 @@ class GuidedProjectionBase(object):
                         stop = True
                         Xi = lam*Xi + (1-lam)*X0
                     lam = 0.5*lam
-            diff = np.linalg.norm(X0-Xi) / X0.shape[0]
+            #diff = np.linalg.norm(X0-Xi) / X0.shape[0]
             X0 = np.array(Xi)
             self._X = np.array(Xi)
             self._post_iteration_update()

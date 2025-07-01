@@ -83,7 +83,7 @@ class Loads(Tool):
 
     beam_load = Float(1,label='Beam load')
 
-    vector = Array(np.float,(1,3), editor = ArrayEditor(width=20))
+    vector = Array(np.float32,(1,3), editor = ArrayEditor(width=20))
 
     apply_force = Button(label='Apply force')
 

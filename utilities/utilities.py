@@ -19,7 +19,7 @@ __author__ = 'Davide Pellis'
 
 def sum_repeated(array, field):
     field = field[:]
-    imap = np.zeros(np.amax(field)+1, dtype=np.int)
+    imap = np.zeros(np.amax(field)+1, dtype=int)
     index = np.arange(array.shape[0])
     k, j = np.unique(field, True)
     imap[k] = np.arange(k.shape[0])
@@ -37,7 +37,7 @@ def repeated_range(array, offset=0):
     if array.shape[0] == 0:
         return np.array([])
     k = np.unique(array)
-    imap = np.zeros(np.amax(k) + 1, dtype=np.int)
+    imap = np.zeros(np.amax(k) + 1, dtype=int)
     imap[k] = np.arange(offset, offset + k.shape[0])
     rrange = imap[array]
     return rrange

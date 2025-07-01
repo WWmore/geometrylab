@@ -12,7 +12,7 @@ import numpy as np
 
 from pyface.image_resource import ImageResource
 
-from traits.api import on_trait_change, Bool, Range, Str, Color
+from traits.api import on_trait_change, Bool, Range, Str, Trait #Color ##Hui replace Color by Trait
 
 from traitsui.api import View, Item, VGroup, HGroup, CheckListEditor, \
     ColorEditor, Controller
@@ -53,11 +53,11 @@ class GeolabMesh(MeshPlotManager):
 
     face_glossy_range = Range(0., 1., 0.5)
 
-    vertex_color_select = Color((122, 163, 230), width=20, label='vertex_color')
+    vertex_color_select = Trait((122, 163, 230), width=20, label='vertex_color')
 
-    edge_color_select = Color((122, 163, 230), width=20, label='edge_color')
+    edge_color_select = Trait((122, 163, 230), width=20, label='edge_color')
 
-    face_color_select = Color((122, 163, 230), width=20)
+    face_color_select = Trait((122, 163, 230), width=20)
 
     vertex_plot = Str('none', label='Vertices')
 
