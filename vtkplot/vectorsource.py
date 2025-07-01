@@ -265,16 +265,16 @@ class Vectors:
                 elif self._anchor_mode == 'edge':
                     anchor = self._geometry.edge_mid_points()
                 anchor = anchor[mask]
-                self._data.set(points=anchor)
+                self._data.points=anchor
             elif self._anchor.type is 'Points':
                 self._geometry = self._anchor
                 anchor = self._geometry.vertices
                 anchor = anchor[mask]
-                self._data.set(points=anchor)
+                self._data.points=anchor
         elif 'anchor' in kwargs:
             anchor = kwargs['anchor']
             anchor = anchor[mask]
-            self._data.set(points=anchor)
+            self._data.points=anchor
         vectors = self._vectors[mask]
         if self._scalars is not None:
             self._scalars = np.array(self._scalars)
