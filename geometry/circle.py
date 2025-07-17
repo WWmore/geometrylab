@@ -73,7 +73,7 @@ class Circle(object):
     def radius(self, radius):
         if type(radius) is int or type(radius) is float:
             radius = [radius]
-        self._radius = np.array(radius, dtype=np.float)
+        self._radius = np.array(radius, dtype=float)
 
     # -------------------------------------------------------------------------
     #                               Sampling
@@ -118,7 +118,7 @@ class Circle(object):
 # -----------------------------------------------------------------------------
 
 
-def circle_three_points(p1, p2, p3):
+def circle_three_points(p1, p2, p3, center=False): #Hui: add center
     p1 = np.array(p1)
     p2 = np.array(p2)
     p3 = np.array(p3)
@@ -126,7 +126,7 @@ def circle_three_points(p1, p2, p3):
     u = p3-p1
     v = p3-p2
     n = np.cross(t, u)
-    nsl = np.linalg.norm(n, axis=1)**2
+    nsl = np.linalg.norm(n, axis=1)**2 #Huinote: problem for only three points
     nsl[np.where(nsl == 0)] == 1e-20
     insl2 = 1.0 / (2.0*nsl)
     insl3 = np.array([insl2, insl2, insl2]).T
@@ -140,4 +140,7 @@ def circle_three_points(p1, p2, p3):
     e2 = t/np.linalg.norm(t, axis=1, keepdims=True)
     e1 = np.cross(e2, n)
     frame = Frame(C, e1, e2, n)
-    return Circle(frame, r)
+    if center:
+        return Circle(frame,r), C, r
+    else:
+        return Circle(frame, r)
