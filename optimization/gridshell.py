@@ -32,6 +32,8 @@ from geometrylab import utilities
 __author__ = 'Davide Pellis'
 "Hui update: np.int --> int;  == None --> is None"
 
+"Hui update: np.int --> int;  == None --> is None"
+
 #------------------------------------------------------------------------------
 #------------------------------------------------------------------------------
 #                               Gridshell
