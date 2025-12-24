@@ -267,7 +267,7 @@ class BSpline(object):
         return tc
 
     def sample_points(self, n=None):
-        if n == None:
+        if n is None:
             n = self.sampling
         t = np.linspace(min(self.knot_vector), max(self.knot_vector), n)
         return self.points(t)

@@ -139,7 +139,7 @@ class MeshVectors:
             self.lut_range = None
         module.add_child(surface)
         #----------------------------------------------------------------------
-        if normals == None:
+        if normals is None:
             src = VTKDataSource(data = source)
             src.add_child(module)
         else:

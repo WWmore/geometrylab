@@ -199,8 +199,8 @@ class Polyline(object):
             cell_array.set_cells(N, cells)
             cell_array = tvtk.CellArray()
             cell_array.set_cells(self._polyline.E, cells)
-            self._data.set(lines=cell_array)
-            self._data.set(points=points)
+            self._data.lines=cell_array
+            self._data.points=points
         self._edge_data = kwargs.get('edge_data', None)
         self._vertex_data = kwargs.get('vertex_data', None)
         if self._edge_data is not None:

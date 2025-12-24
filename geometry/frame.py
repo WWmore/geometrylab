@@ -46,7 +46,7 @@ class Frame(object):
 
     @origin.setter
     def origin(self, origin):
-        origin = np.array(origin, dtype=np.float)
+        origin = np.array(origin, dtype=np.float32)
         if len(origin.shape) == 1:
             origin = np.array([origin])
         if origin.shape[1] != 3:
@@ -59,7 +59,7 @@ class Frame(object):
 
     @e1.setter
     def e1(self, e1):
-        e1 = np.array(e1, dtype=np.float)
+        e1 = np.array(e1, dtype=np.float32)
         if len(e1.shape) == 1:
             e1 = np.array([e1])
         if e1.shape[1] != 3:
@@ -76,7 +76,7 @@ class Frame(object):
 
     @e2.setter
     def e2(self, e2):
-        e2 = np.array(e2, dtype=np.float)
+        e2 = np.array(e2, dtype=np.float32)
         if len(e2.shape) == 1:
             e2 = np.array([e2])
         if e2.shape[1] != 3:
@@ -93,7 +93,7 @@ class Frame(object):
 
     @e3.setter
     def e3(self, e3):
-        e3 = np.array(e3, dtype=np.float)
+        e3 = np.array(e3, dtype=np.float32)
         if len(e3.shape) == 1:
             e3 = np.array([e3])
         if e3.shape[1] != 3:

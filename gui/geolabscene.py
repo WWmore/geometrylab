@@ -31,7 +31,8 @@ class GeolabScene(DecoratedScene):
     image_search_path = [join(resource_path(), 'images'), ]
 
     _position = None
-
+    ##Hui add (used for different project):
+    _position = [np.float64(7.75256495934037), np.float64(-48.11575161325865), np.float64(58.71310623733231), np.float64(-0.1396126225516646), np.float64(0.729345210531181), np.float64(0.6697491168336648), np.float64(-0.7049543794040751), np.float64(3.1842936240949733), np.float64(1.085230695622755), 30.0, np.float64(44.82857126430818), np.float64(118.60791013464831), False]
     ##########################################################################
     # Non-public interface.
     ##########################################################################
@@ -95,7 +96,7 @@ class GeolabScene(DecoratedScene):
             cc.position = np.array([p[0], p[1], p[2]])
             cc.view_up = np.array([p[3], p[4], p[5]])
             cc.focal_point = np.array([p[6], p[7], p[8]])
-            cc.view_angle = np.float(p[9])
+            cc.view_angle = float(p[9])
             cc.clipping_range = np.array([p[10], p[11]])
             try:
                 cc.parallel_projection = p[12]

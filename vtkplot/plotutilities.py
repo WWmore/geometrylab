@@ -160,7 +160,7 @@ def map_color(key):
             color = key
         elif type(key) == str:
             color = (128 ,128, 128)
-        elif key == None:
+        elif key is None:
             color = None
         else:
             color = (128 ,128, 128)

@@ -193,8 +193,8 @@ class Edges(object):
             points = self._mesh.vertices
             cell_array = tvtk.CellArray()
             cell_array.set_cells(E, cells)
-            self._data.set(lines=cell_array)
-            self._data.set(points=points)
+            self._data.lines = cell_array ##Hui replace .set to .lines
+            self._data.points = points ##Hui replace .set to .points
             self._edge_data = None
             self._vertex_data = None
         self._edge_data = kwargs.get('edge_data', self._edge_data)

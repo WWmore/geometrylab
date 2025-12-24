@@ -12,10 +12,12 @@ import numpy as np
 
 from pyface.image_resource import ImageResource
 
-from traits.api import on_trait_change, Bool, Range, Str, Color
+from traits.api import on_trait_change, Bool, Range, Str, Trait #Color ##Hui replace Color by Trait
 
 from traitsui.api import View, Item, VGroup, HGroup, CheckListEditor, \
     ColorEditor, Controller
+    
+from PyQt5.QtGui import QColor  # 适配 Qt 环境（PySide 同理）##Hui add
 
 # ------------------------------------------------------------------------------
 
@@ -53,11 +55,17 @@ class GeolabMesh(MeshPlotManager):
 
     face_glossy_range = Range(0., 1., 0.5)
 
-    vertex_color_select = Color((122, 163, 230), width=20, label='vertex_color')
+    vertex_color_select = Trait((122, 163, 230), width=20, label='vertex_color', editor=ColorEditor(mapped=False)) ##Hui update
 
-    edge_color_select = Color((122, 163, 230), width=20, label='edge_color')
+    vertex_color_select_ = QColor(255, 255, 255)  ##Hui add
 
-    face_color_select = Color((122, 163, 230), width=20)
+    edge_color_select = Trait((122, 163, 230), width=20, label='edge_color', editor=ColorEditor(mapped=False)) ##Hui update
+    
+    edge_color_select_ = QColor(255, 255, 255)  ##Hui add
+    
+    face_color_select = Trait((122, 163, 230), width=20, label='face_color', editor=ColorEditor(mapped=False)) ##Hui update
+    
+    face_color_select_ = QColor(255, 255, 255)  ##Hui add
 
     vertex_plot = Str('none', label='Vertices')
 

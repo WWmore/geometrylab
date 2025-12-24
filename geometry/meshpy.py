@@ -153,7 +153,7 @@ class Mesh(object):
 
     @property
     def kdtree(self):
-        if self._kdtree == None:
+        if self._kdtree is None:
             self.make_kdtree()
         return self._kdtree
 
@@ -293,7 +293,7 @@ class Mesh(object):
         K[:,0] = np.arange(H.shape[0])
         m = np.amin(K, axis=1)
         u = np.unique(m)
-        imap = np.arange(np.max(u) + 1, dtype=np.int)
+        imap = np.arange(np.max(u) + 1, dtype=int)
         imap[u] = np.arange(u.shape[0])
         H[:,5] = imap[m]
         self._halfedges = H
@@ -467,7 +467,7 @@ class Mesh(object):
             v  = v[i]
             vj = vj[i]
         if return_lengths:
-            i  = np.ones(vj.shape[0], dtype=np.int)
+            i  = np.ones(vj.shape[0], dtype=int)
             lj = utilities.sum_repeated(i,v)
             return v, vj, lj
         else:
@@ -994,7 +994,7 @@ class Mesh(object):
     def face_planarity(self, scale_invariant=True):
         planarity = np.zeros((self.F))
         f, vi = self.face_vertices_iterators()
-        i = np.ones((f.shape[0]),dtype=np.int)
+        i = np.ones((f.shape[0]),dtype=int)
         j = np.arange(f.shape[0])
         _, k = np.unique(f, True)
         L = utilities.sum_repeated(i, f)
@@ -1068,8 +1068,8 @@ class Mesh(object):
     def orient_faces(self, vertices_list, faces_list):
         F = len(faces_list)
         V = len(vertices_list)
-        fmap = -np.ones((V,V), dtype=np.int)
-        inconsistent = np.zeros((V,V), dtype=np.int)
+        fmap = -np.ones((V,V), dtype=int)
+        inconsistent = np.zeros((V,V), dtype=int)
         flipped = np.zeros(F, dtype=bool)
         oriented = np.zeros(F, dtype=bool)
         oriented_faces = copy.deepcopy(faces_list)
@@ -1568,8 +1568,8 @@ class Mesh(object):
         HD[b,1] = np.copy(fb)
         HD[b,3] = np.copy(hb1)
         HD[H[b,3],2] = np.copy(hb2)
-        Hb1 = np.zeros((B,6), dtype=np.int)
-        Hb2 = np.zeros((B,6), dtype=np.int)
+        Hb1 = np.zeros((B,6), dtype=int)
+        Hb2 = np.zeros((B,6), dtype=int)
         Hb1[:,0] = -1
         Hb2[:,0] = H[b,0]
         Hb1[:,1] = fb

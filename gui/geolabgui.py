@@ -407,9 +407,9 @@ class GeolabGUI(MultiSceneManager):
 
     __windows = []
 
-    height = Int(800)
+    height = Int(300)
 
-    width = Int(1200)
+    width = Int(500)
 
     side_width = Int(400)
 

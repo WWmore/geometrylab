@@ -28,9 +28,9 @@ __author__ = 'Davide Pellis'
 
 def mesh_plane(Fx=10, Fy=10, x_min=-5, x_max=5, y_min=-5, y_max=5):
     Fx +=1; Fy +=1
-    M = np.arange(Fx*Fy, dtype=np.int)
+    M = np.arange(Fx*Fy, dtype=int)
     M = np.reshape(M,(Fx,Fy))
-    Q = np.zeros((Fx-1, Fy-1,4) ,dtype=np.int)
+    Q = np.zeros((Fx-1, Fy-1,4) ,dtype=int)
     Q[:,:,3] = M[:M.shape[0]-1,:M.shape[1]-1]
     Q[:,:,2] = M[:M.shape[0]-1,1:]
     Q[:,:,1] = M[1:,1:]
@@ -49,10 +49,10 @@ def mesh_plane(Fx=10, Fy=10, x_min=-5, x_max=5, y_min=-5, y_max=5):
 def mesh_cylinder(C=[0,0,0], r=1, h=3, Fa=10, Fv=5):
     C = np.array(C)
     Fx = Fa; Fy = Fv+1
-    M = np.arange(Fx*Fy, dtype=np.int)
+    M = np.arange(Fx*Fy, dtype=int)
     M = np.reshape(M,(Fy,Fx))
     M = np.insert(M,Fx,M[:,0],axis=1)
-    Q = np.zeros((Fy-1, Fx,4) ,dtype=np.int)
+    Q = np.zeros((Fy-1, Fx,4) ,dtype=int)
     Q[:,:,0] = M[:M.shape[0]-1,:M.shape[1]-1]
     Q[:,:,1] = M[:M.shape[0]-1,1:]
     Q[:,:,2] = M[1:,1:]
@@ -75,16 +75,16 @@ def mesh_cylinder(C=[0,0,0], r=1, h=3, Fa=10, Fv=5):
 def mesh_sphere(C=[0,0,0], r=1, Fa=20, Fv=10):
     C = np.array(C)
     Fx = Fa; Fy = Fv-1
-    M = np.arange(Fx*Fy, dtype=np.int)
+    M = np.arange(Fx*Fy, dtype=int)
     M = np.reshape(M, (Fy, Fx)) + 1
     M = np.insert(M, Fx, M[:,0], axis=1)
-    Q = np.zeros((Fy-1, Fx, 4) ,dtype=np.int)
+    Q = np.zeros((Fy-1, Fx, 4) ,dtype=int)
     Q[:,:,3] = M[:M.shape[0]-1,:M.shape[1]-1]
     Q[:,:,2] = M[:M.shape[0]-1,1:]
     Q[:,:,1] = M[1:,1:]
     Q[:,:,0] = M[1:,:M.shape[1]-1]
     Q = Q.reshape(((Fx)*(Fy-1),4),order='C').tolist()
-    T = np.zeros((2, Fx, 3) ,dtype=np.int)
+    T = np.zeros((2, Fx, 3) ,dtype=int)
     T[0,:,0] = M[0,:M.shape[1]-1]
     T[0,:,1] = M[0,1:]
     T[0,:,2] = 0
@@ -113,11 +113,11 @@ def mesh_sphere(C=[0,0,0], r=1, Fa=20, Fv=10):
 def mesh_torus(C=[0,0,0], r1=3, r2=1, F1=25, F2=15):
     C = np.array(C)
     Fx = F2; Fy = F1
-    M = np.arange(Fx*Fy, dtype=np.int)
+    M = np.arange(Fx*Fy, dtype=int)
     M = np.reshape(M,(Fy,Fx))
     M = np.insert(M,Fx,M[:,0],axis=1)
     M = np.insert(M,Fy,M[0,:],axis=0)
-    Q = np.zeros((Fy, Fx,4) ,dtype=np.int)
+    Q = np.zeros((Fy, Fx,4) ,dtype=int)
     Q[:,:,3] = M[:M.shape[0]-1,:M.shape[1]-1]
     Q[:,:,2] = M[:M.shape[0]-1,1:]
     Q[:,:,1] = M[1:,1:]
@@ -139,15 +139,15 @@ def mesh_torus(C=[0,0,0], r1=3, r2=1, F1=25, F2=15):
 
 def mesh_arrow(Fa=15, tip_length=3, shaft_length=8, tip_radius=1, shaft_radius=0.4):
     Fx = Fa; Fy = 7
-    M = np.arange(Fx*Fy, dtype=np.int)
+    M = np.arange(Fx*Fy, dtype=int)
     M = np.reshape(M,(Fy,Fx))
     M = np.insert(M,Fx,M[:,0],axis=1)
-    Q = np.zeros((Fy-1, Fx,4) ,dtype=np.int)
+    Q = np.zeros((Fy-1, Fx,4) ,dtype=int)
     Q[:,:,3] = M[:M.shape[0]-1,:M.shape[1]-1]
     Q[:,:,2] = M[:M.shape[0]-1,1:]
     Q[:,:,1] = M[1:,1:]
     Q[:,:,0] = M[1:,:M.shape[1]-1]
-    T = np.zeros((1, Fx, 3) ,dtype=np.int)
+    T = np.zeros((1, Fx, 3) ,dtype=int)
     T[0,:,0] = M[-1,1:]
     T[0,:,1] = M[-1,:M.shape[1]-1]
     T[0,:,2] = Fx*Fy
@@ -181,15 +181,15 @@ def mesh_arrows(vectors, anchors, Fa=3, anchor_mode='head',
         anchors = anchors + vectors
     L = np.linalg.norm(vectors,axis=1)
     N = vectors.shape[0]
-    M = np.arange(Fx*Fy, dtype=np.int)
+    M = np.arange(Fx*Fy, dtype=int)
     M = np.reshape(M,(Fy,Fx))
     M = np.insert(M,Fx,M[:,0],axis=1)
-    Q = np.zeros((Fy-1, Fx,4) ,dtype=np.int)
+    Q = np.zeros((Fy-1, Fx,4) ,dtype=int)
     Q[:,:,3] = M[:M.shape[0]-1,:M.shape[1]-1]
     Q[:,:,2] = M[:M.shape[0]-1,1:]
     Q[:,:,1] = M[1:,1:]
     Q[:,:,0] = M[1:,:M.shape[1]-1]
-    T = np.zeros((1, Fx, 3) ,dtype=np.int)
+    T = np.zeros((1, Fx, 3) ,dtype=int)
     T[0,:,0] = M[-1,1:]
     T[0,:,1] = M[-1,:M.shape[1]-1]
     T[0,:,2] = Fx*Fy
@@ -197,10 +197,10 @@ def mesh_arrows(vectors, anchors, Fa=3, anchor_mode='head',
     O = np.reshape(O,(N,1,1))
     Q = Q.reshape(((Fx)*(Fy-1),4),order='C')
     T = T.reshape((Fx,3),order='C')
-    Qd = np.zeros((N,Q.shape[0],Q.shape[1]),dtype=np.int)
+    Qd = np.zeros((N,Q.shape[0],Q.shape[1]),dtype=int)
     Qd[:] = Q
     Qd += O
-    Td = np.zeros((N,T.shape[0],T.shape[1]),dtype=np.int)
+    Td = np.zeros((N,T.shape[0],T.shape[1]),dtype=int)
     Td[:] = T
     Td += O
     Qd = np.insert(Qd,0,4,axis=2)

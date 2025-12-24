@@ -120,7 +120,7 @@ class MultiSceneManager(SceneManager):
     #--------------------------------------------------------------------------
 
     def add_object(self, geometry, name=None, scene=None):
-        if name == None:
+        if name is None:
             name = ('obj_{}').format(self._counter)
             self._counter += 1
         scene = self._format_scene(scene)
@@ -180,7 +180,7 @@ class MultiSceneManager(SceneManager):
 
     def update_plot(self, scene=None):
         self.disable_render()
-        if scene == None:
+        if scene is None:
             for key in self._scene_managers:
                 self.get_scene(key).update_plot()
         else:
